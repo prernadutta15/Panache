@@ -1,0 +1,29 @@
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="robots" content="all">
+<meta content="en" property="og:locale">
+<meta content="Guy Moorhouse, Designer" property="og:site_name">
+<meta content="website" property="og:type">
+<meta content="https://www.futurefabric .co/" property="og:url">
+<meta content="Selected Work – Guy Moorhouse, Designer" property="og:title">
+<meta content="The portfolio and shop of digital product designer and technologist, Guy Moorhouse. 👨🏻‍💻" property="og:description">
+<meta content="https://www.futurefabric.co/uploads/social/work-index-social-sharing.png" property="og:image">
+<meta content="1360" property="og:image:width">
+<meta content="680" property="og:image:height">
+<meta content="An image of the www.futurefabric.co home page" property="og:image:alt">
+<meta content="https://vimeo.com/futurefabric" property="og:see_also">
+<meta content="https://github.com/futurefabric" property="og:see_also">
+<meta content="https://instagram.com/futurefabric.co" property="og:see_also">
+<meta content="https://twitter.com/futurefabric" property="og:see_also">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@futurefabric">
+<meta name="twitter:creator" content="@futurefabric">
+<meta name="twitter:title" content="Selected Work – Guy Moorhouse, Designer">
+<meta name="twitter:description" content="The portfolio and shop of digital product designer and technologist, Guy Moorhouse. 👨🏻‍💻">
+<meta name="twitter:image" content="https://www.futurefabric.co/uploads/social/work-index-social-sharing.png">
+<meta name="twitter:image:width" content="1360">
+<meta name="twitter:image:height" content="680">
+<meta name="twitter:image:alt" content="An image of the www.futurefabric.co home page">
+<meta name="google-site-verification" content="BLTqdgUGg2a_LYeiEw1Gk9tFTBq_HB6rc8HeFnl4w1M">
+<link href="https://www.futurefabric.co/" rel="canonical">
+<link href="https://www.futurefabric.co/" rel="home">
+<link type="text/plain" href="https://www.futurefabric.co/humans.txt" rel="author">

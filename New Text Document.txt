@@ -1,0 +1,60 @@
+
+<!doctype html>
+<!--[if lte IE 9]>
+<html lang="en" class="oldie">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="eqmq707293PhInRX+kJ0Kv3ItKn3lfTYfHdd6n2VqSaeOxnvIHe5FPFLNELWnAOttKaD+bIaC2RRbDxR1Bg1qQ==" />
+
+<title>CodePen - Panda Login</title>
+<link rel="stylesheet" media="screen" href="https://static.codepen.io/assets/fullpage/fullpage-4de243a40619a967c0bf13b95e1ac6f8de89d943b7fc8710de33f681fe287604.css" />
+<link rel="stylesheet" media="all" href="https://static.codepen.io/assets/global/global-7a9f25f2cd0936277cb0b47b34435528521cd702e5c9c1d652b6d22e11c4667c.css" />
+<link rel="stylesheet" media="screen" href="https://static.codepen.io/assets/packs/css/everypage-44bf132d.css" />
+<link rel="stylesheet" media="all" href="https://static.codepen.io/assets/page/page-2de247a1d3c290a78a5ab5a736253033cac2fafe9c6a6fd558a9d44bdb9a5a14.css" />
+<link rel="stylesheet" media="all" href="https://static.codepen.io/assets/editor/editor-4b9455e47e680eb3ba4d576bce3169777f15a82bd0a30b719d5c5a229055432f.css" />
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic' rel='stylesheet'>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CodePen">
+<meta name="twitter:title" content="Panda Login">
+<meta name="twitter:description" content="Funny material transition login form  ...">
+<meta name="twitter:image" content="https://screenshot.codepen.io/176986.NxqKoY.eefa8242-344a-4011-bff6-de662ccdad2c.png">
+<meta name="twitter:creator" content="@vineethtrv">
+<meta property="og:image" content="https://codepen.io/vineethtr/pen/NxqKoY/image/large.png" itemprop="thumbnailUrl">
+<meta property="og:title" content="Panda Login">
+<meta property="og:url" content="https://codepen.io/vineethtr/details/NxqKoY">
+<meta property="og:site_name" content="CodePen">
+<meta property="og:description" content="Funny material transition login form  ...">
+<link rel="alternate" type="application/json+oembed" href="https://codepen.io/api/oembed?url=https%3A%2F%2Fcodepen.io%2Fvineethtr%2Fpen%2FNxqKoY&format=json" title="Panda Login" />
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<script>/* Firefox needs this to prevent FOUC. Wow. */</script>
+</head>
+<body class="fullpage logged-out sidebar-false">
+<header id="main-header" class="main-header"></header>
+<div class="oldie-header">
+<a href="https://codepen.io/vineethtr/pen/NxqKoY">Edit Pen</a>
+</div>
+<div id="result-iframe-wrap" role="main">
+<iframe id="result" src="https://cdpn.io/vineethtr/fullpage/NxqKoY" sandbox="allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; microphone; midi; payment; vr" allowTransparency="true" allowpaymentrequest="true" allowfullscreen="true" class="result-iframe"></iframe>
+</div>
+<div id="full-view-ad"></div>
+<input type="hidden" id="init-data" value="{&quot;__browser&quot;:{&quot;device&quot;:&quot;unknown&quot;,&quot;mobile&quot;:null,&quot;name&quot;:&quot;chrome&quot;,&quot;platform&quot;:&quot;pc&quot;,&quot;version&quot;:&quot;80&quot;},&quot;__analytics&quot;:{&quot;controllerActionName&quot;:&quot;show_secure_full_page&quot;,&quot;controllerName&quot;:&quot;fullpage&quot;,&quot;enabled&quot;:true},&quot;__remote_addr&quot;:&quot;2402:3a80:a0d:e412:4cd1:3593:57df:e92c&quot;,&quot;__CPDATA&quot;:{&quot;domain_iframe&quot;:&quot;https://cdpn.io&quot;,&quot;host&quot;:&quot;codepen.io&quot;,&quot;iframe_allow&quot;:&quot;accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; microphone; midi; payment; vr&quot;,&quot;iframe_sandbox&quot;:&quot;allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts&quot;},&quot;__env&quot;:&quot;production&quot;,&quot;__turnOffJS&quot;:false,&quot;__constants&quot;:{&quot;grid_iframe_sandbox_attributes&quot;:&quot;allow-scripts allow-pointer-lock allow-same-origin&quot;},&quot;__svg_sprite&quot;:&quot;/svg_sprite?v=9637ff09&quot;,&quot;__stream_analytics&quot;:{&quot;api_key&quot;:&quot;64puhuch8n2j&quot;,&quot;token&quot;:&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyZXNvdXJjZSI6ImFuYWx5dGljcyIsImFjdGlvbiI6IioiLCJ1c2VyX2lkIjoiKiJ9.K-TP9-k-_ZnktGVf_CxDVZyUXKzGMFVJ--dNJ-20_t4&quot;},&quot;__user&quot;:{&quot;anon&quot;:true,&quot;base_url&quot;:&quot;/anon/&quot;,&quot;current_team_id&quot;:0,&quot;current_team_hashid&quot;:&quot;YdEzGn&quot;,&quot;hashid&quot;:&quot;VoDkNZ&quot;,&quot;id&quot;:1,&quot;itemType&quot;:&quot;user&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;owner_id&quot;:&quot;VoDkNZYdEzGn&quot;,&quot;paid&quot;:false,&quot;tier&quot;:0,&quot;username&quot;:&quot;anon&quot;},&quot;__firestore&quot;:{&quot;config&quot;:{&quot;apiKey&quot;:&quot;AIzaSyBgLAe7N_MdFpuVofMkcQLGwwhUu5tuxls&quot;,&quot;authDomain&quot;:&quot;codepen-store-production.firebaseapp.com&quot;,&quot;databaseURL&quot;:&quot;https://codepen-store-production.firebaseio.com&quot;,&quot;disabled&quot;:false,&quot;projectId&quot;:&quot;codepen-store-production&quot;},&quot;token&quot;:&quot;eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJodHRwczovL2lkZW50aXR5dG9vbGtpdC5nb29nbGVhcGlzLmNvbS9nb29nbGUuaWRlbnRpdHkuaWRlbnRpdHl0b29sa2l0LnYxLklkZW50aXR5VG9vbGtpdCIsImNsYWltcyI6eyJvd25lcklkIjoiVm9Ea05aWWRFekduIiwiYWRtaW4iOmZhbHNlfSwiZXhwIjoxNTg2NTA1OTk2LCJpYXQiOjE1ODY1MDIzOTYsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLThva3lsQGNvZGVwZW4tc3RvcmUtcHJvZHVjdGlvbi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInN1YiI6ImZpcmViYXNlLWFkbWluc2RrLThva3lsQGNvZGVwZW4tc3RvcmUtcHJvZHVjdGlvbi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsInVpZCI6IlZvRGtOWiJ9.TdjSPc9XKf0zd0ahqVVNA9T1E13ZmB-LPhcjHHeaoHZuKPtM72S9EofP0Pza_McN6boG1XIDn0i6iollGV8oDJRvTOftHqCQmmNHqpSjwoVG7ILGfqt1dlwUhHXS_12sgKcQ8K2TnjsY7BUoTvi5YwAKiEAT7Obb0bTkXgh6bKIIYu7sjwNejn6K3GO1cqq6Wcvaixj9fLhI3GxIwgcTokHTISpJXrgJ4ZOzpnmzn06_SQKhdYQWCImxae9ScGJfT9YuAsz_4k3-41KW1x9XqBfICzjI1J58yu4na6SqfboIIY_arjBnpfBB1P03enOV4UK8f8iNrgaZvcEK16-EMQ&quot;},&quot;__graphql&quot;:{&quot;data&quot;:{&quot;sessionUser&quot;:{&quot;id&quot;:&quot;VoDkNZ&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;avatar80&quot;:&quot;https://static.codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png&quot;,&quot;avatar512&quot;:&quot;https://static.codepen.io/assets/avatars/user-avatar-512x512-6e240cf350d2f1cc07c2bed234c3a3bb5f1b237023c204c782622e80d6b212ba.png&quot;,&quot;canCreatePosts&quot;:false,&quot;currentContext&quot;:{&quot;id&quot;:&quot;VoDkNZ&quot;,&quot;baseUrl&quot;:&quot;/anon&quot;,&quot;title&quot;:&quot;Captain Anonymous&quot;,&quot;name&quot;:&quot;Captain Anonymous&quot;,&quot;avatar80&quot;:&quot;https://static.codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png&quot;,&quot;avatar512&quot;:&quot;https://static.codepen.io/assets/avatars/user-avatar-512x512-6e240cf350d2f1cc07c2bed234c3a3bb5f1b237023c204c782622e80d6b212ba.png&quot;,&quot;username&quot;:&quot;anon&quot;,&quot;contextType&quot;:&quot;USER&quot;,&quot;projectLimitations&quot;:{&quot;projects&quot;:0,&quot;usedProjects&quot;:0,&quot;__typename&quot;:&quot;ProjectLimitations&quot;},&quot;privateByDefault&quot;:false,&quot;__typename&quot;:&quot;User&quot;},&quot;currentTeamId&quot;:null,&quot;baseUrl&quot;:&quot;/anon&quot;,&quot;username&quot;:&quot;anon&quot;,&quot;admin&quot;:false,&quot;anon&quot;:true,&quot;pro&quot;:false,&quot;verified&quot;:true,&quot;teams&quot;:[],&quot;permissions&quot;:{&quot;canCreatePrivate&quot;:false,&quot;canUploadAssets&quot;:false,&quot;__typename&quot;:&quot;UserPermissions&quot;},&quot;__typename&quot;:&quot;User&quot;}}},&quot;__item&quot;:&quot;{\&quot;id\&quot;:6038326,\&quot;hashid\&quot;:\&quot;NxqKoY\&quot;,\&quot;itemType\&quot;:\&quot;pen\&quot;,\&quot;owner_id\&quot;:\&quot;egpJozYdEzGn\&quot;,\&quot;user_id\&quot;:176986,\&quot;slug_hash\&quot;:\&quot;NxqKoY\&quot;,\&quot;private\&quot;:false,\&quot;slug_hash_private\&quot;:\&quot;48832d2664b3c2e4fd5872fe64ed6a57\&quot;}&quot;,&quot;__profiled&quot;:{&quot;id&quot;:176986,&quot;hashid&quot;:&quot;egpJoz&quot;,&quot;name&quot;:&quot;Vineeth.TR&quot;,&quot;username&quot;:&quot;vineethtr&quot;,&quot;type&quot;:&quot;user&quot;,&quot;is_team&quot;:false,&quot;base_url&quot;:&quot;/vineethtr&quot;},&quot;__pageType&quot;:&quot;full&quot;}">
+<div id="popup-overlay" class="overlay popup-overlay"></div>
+<div id="modal-overlay" class="overlay modal-overlay"></div>
+<div id="react-popups" class="react-popups"></div>
+<script src="https://static.codepen.io/assets/common/everypage-c9e67ee9b7c2932b14d2cc61b5030e706c94919a2e7339f8b9127aa8c189a048.js"></script>
+<script src="https://static.codepen.io/assets/common/analytics_and_notifications-3d2c58dd98ac8ec623d91df1b90a133c683d26cfd10b4444621a904fa0c5ac83.js"></script>
+<script src="https://static.codepen.io/assets/packs/js/vendor-52e0e78dda88928939b0.chunk.js"></script>
+<script src="https://static.codepen.io/assets/packs/js/2-4be9645581343bc299fe.chunk.js"></script>
+<script src="https://static.codepen.io/assets/packs/js/everypage-66782bb9927323acd25d.js"></script>
+<script src="https://static.codepen.io/assets/editor/full/full_page_renderer-a8be422e43b5954dbe3f06dc7cd9f3f50f93ea87e1ff05c0680e7718ad800c6a.js"></script>
+</body>
+</html>
