@@ -1,9 +1,5 @@
 <!DOCTYPE>
-<?php 
-session_start();
-include("functions/functions.php");
 
-?>
 <html>
 	<head>
 		<title>My Online Shop</title>
@@ -146,7 +142,7 @@ margin-bottom:10px;
 	<li class="shop-nav"><a href="#">Login</a></li>
 	<li class="shop-nav"><a href="#">Register</a></li>
 	<div id="form" style="height:40px;width:200px; float:left; margin-top:-55px;margin-left:10px">
-  <form method="get" action ="results.php" enctype="multipart/form-data" >
+  <form method="get" action ="#" enctype="multipart/form-data" >
 	<input type="text" style="height:35px; width:195px; font-size:70%;" name="user_query" placeholder="Search a product"/>
 	<p style="position:absolute;"><input type="submit" style="height:35px; width:70px; font-size:80%; color:gray; float:left; margin-top:-35px;margin-left:195px;" name="search" value="Search" /></p>
 	
@@ -227,37 +223,19 @@ margin-bottom:10px;
 			
 		
 			<div id="content_area">
-			<?php cart()?>
+			
 			<div id="shopping_cart">
 			<span style="color:#ffd633;float:right; margin-right:860px;font-size:200%;line-height:40px;">
-			<?php 
-					if(isset($_SESSION['customer_email'])){
-					echo "<b>Welcome:</b>" . $_SESSION['customer_email'] ;
-					}
-					else {
-					echo "<b>Welcome Guest:</b>";
-					}
-					?>
+		
 			</span>
-			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart-> Total Items: <?php total_items(); ?>  Total Price: <?php total_price(); ?> </p>
+			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart-> Total Items: </p>
 			
 			<a href="cart.php" style="color:#ffd633;left:1180px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
 			</div>
 			
 			
 			<div id="products_box">
-				<?php 
-				if(!isset($_SESSION['customer_email'])){
-					
-					include("customer_login.php");
-				}
-				else {
 				
-				include("payment.php");
-				
-				}
-				
-				?>
 			</div>
 			
 			</div>
