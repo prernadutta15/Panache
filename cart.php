@@ -258,10 +258,10 @@ margin-bottom:10px;
 					
 					<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
 					</span>
-					<p style="left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
+					<p style="left:420px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
 					
 					
-					<a href='login_form.php' style='color:white;font-size:120%;margin-left:490px;'>Login</a>
+					<a href='login_form.php' style='color:white;font-size:120%;margin-left:90px;'>Login</a>
 					
 					<a href="all_products.php" style="color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go Back</a>
 			</div>
