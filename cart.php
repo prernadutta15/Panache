@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <?php 
-
+session_start();
 include("functions/functions.php");
 
 ?>
@@ -251,24 +251,35 @@ margin-bottom:10px;
 		
 			<div id="content_area">
 			<?php cart()?>
-			<div id="shopping_cart">
-			<span style="color:#ffd633;float:right; margin-right:460px;font-size:200%;line-height:40px;">Welcome Guest!</span>
-			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart-> Total Items: <?php total_items(); ?>  Total Price: <?php total_price(); ?> </p>
-			
-			<a href="#" style="color:#ffd633;left:1180px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
+			<div id="shopping_cart"> 
+					
+				
+					<div id="shopping_cart"> 
+					
+					<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
+					</span>
+					<p style="left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
+					
+					
+					<a href='login_form.php' style='color:white;font-size:120%;margin-left:490px;'>Login</a>
+					
+					<a href="all_products.php" style="color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go Back</a>
+			</div>
+					
+					
 			</div>
 			<?php getIp()?>
 			
 				<div id="products_box" >
 						<form action="" method="post" enctype="multipart/form-data">
 			
-				<table align="center" width="100%"  style="margin-top:10px;margin-left:130px;">
+				<table align="center" width="700" bgcolor="skyblue">
 					
-					<tr align="center" style="font-size:200%; color: #ffd633; ">
-						<th style="position:absolute;left:370px">Remove</th>
-						<th style="position:absolute;left:570px">Product(s)</th>
-						<th style="position:absolute;left:820px;">Quantity</th>
-						<th style="position:absolute;left:970px">Total Price</th>
+					<tr align="center">
+						<th>Remove</th>
+						<th>Product(S)</th>
+						<th>Quantity</th>
+						<th>Total Price</th>
 					</tr>
 					
 		<?php 
@@ -306,16 +317,12 @@ margin-bottom:10px;
 					
 					?>
 					
-					<tr align="center" style="margin-bottom:150px;position:relative;">
-						<td style="margin-left:70px; position:absolute; margin-top:150px;"><input type="checkbox" style="width:20px;height:20px;" name="remove[]" value="<?php echo $pro_id;?>"/></td>
-						<td style="">
-						
-						<?php echo $product_title; ?><br>
-						<img src="admin_area/product_images/<?php echo $product_image;?>" style="width:300px;height:300px;margin-left:70px;"/>
+					<tr align="center">
+						<td style="margin-left:200px"><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></td>
+						<td><?php echo $product_title; ?><br>
+						<img src="admin_area/product_images/<?php echo $product_image;?>" width="160" height="260"/>
 						</td>
-						
-						<td style="position:absolute; left:63%; margin-top:90px;"><input type="text" size="4" name="qty" value="1" style="margin-top:60px;text-align:center;"/>
-						
+						<td><input type="text" size="4" name="qty" value="1"/></td>
 						<?php 
 						if(isset($_POST['update_cart'])){
 						
@@ -331,26 +338,28 @@ margin-bottom:10px;
 						}
 						
 						
-						?></td>
-					
+						?>
 						
-						<td style="position:absolute; left:76%; margin-top:151px;font-size:120%;color:#ff164d;"><?php echo "$" . $single_price; ?></td>
+						
+						<td><?php echo "$" . $single_price; ?></td>
 					</tr>
 					
 					
 				<?php } } ?>
 				
 				<tr>
-						<td colspan="4" align="right" style="font-size:200%;"><b>Sub Total:</b></td>
-						<td style="font-size:200%;"><?php echo "$" . $total;?></td>
+						<td colspan="4" align="right"><b>Sub Total:</b></td>
+						<td><?php echo "$" . $total;?></td>
 					</tr>
-				</table> 
-					<div id="block" style="margin-left:440px">
-					<input type="submit" name="update_cart" style="margin-left:-310px;width:200px; color:#ffd633; font-size:120%; border:3px solid #ffd633; background:black;" value="Update Cart"/>
-						<input  type="submit" style=" width:200px; color:#ffd633; font-size:120%; border:3px solid #ffd633; background:black; " name="continue" value="Continue Shopping" />
+					
+					<tr align="center">
+						<td colspan="2"><input type="submit" name="update_cart" value="Update Cart"/></td>
+						<td><input type="submit" name="continue" value="Continue Shopping" /></td>
 						
-					</div>
-					<a href="checkout.php" style="text-decoration:none; color:#ffd633; margin-left:60px;padding:2px; border: 3px solid #ffd633; background:black; font-size:160%; ">Checkout</a>
+					</tr><tr>
+					<td><button><a href="checkout.php" style="text-decoration:none; color:black;">Checkout</a></button></td></tr>
+				</table> 
+			
 			</form>
 			
 	<?php 

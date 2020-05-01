@@ -1,6 +1,10 @@
 
 <!doctype html>
+<?php 
+session_start();
+include("functions/functions.php");
 
+?>
 
 <head>
 <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';</script>
@@ -99,8 +103,8 @@ border-radius: 50%;
 <a href="cart.php"><div class="logo"><img class="avatar" src="images/avatar.svg"></div></a>
 <nav class="primary-nav">
   <ul class="primary-navigation">
-    <li class="work-nav active"><a href="home.html">Home</a></li>
-    <li class="play-nav"><a href="home.html">About Us</a></li>
+    <li class="work-nav active"><a href="all_products.php">Home</a></li>
+    <li class="play-nav"><a href="all_products.php">About Us</a></li>
     <li class="about-nav"><a href="home.html">Contact Us</a></li>
    
     <li class="shop-nav"><a href="home.html">Gift Items</a></li>

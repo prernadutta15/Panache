@@ -1,6 +1,6 @@
 <!DOCTYPE>
 <?php 
-
+session_start();
 include("functions/functions.php");
 
 ?>
@@ -121,7 +121,7 @@ margin-bottom:10px;
 	
 	#shopping_cart {width:150%; height:50px; background:black; margin-top:-20px;color:white;margin-left:-380px; margin-bottom:20px;}
 
-//hello
+//hello Sattoo!
 
 
 	</style>
@@ -223,55 +223,29 @@ margin-bottom:10px;
 		<!--Navigation Bar ends-->
 	
 		<!--Content wrapper starts-->
-		<div class="content_wrapper" style="margin-top:20px;">
-		
-			
+		<div class="content_wrapper">
 		
 			<div id="content_area">
-			<?php cart()?>
-			<div id="shopping_cart">
-			<span style="color:#ffd633;float:right; margin-right:460px;font-size:200%;line-height:40px;">Welcome Guest!</span>
-			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart-> Total Items: <?php total_items(); ?>  Total Price: <?php total_price(); ?> </p>
 			
-			<a href="cart.php" style="color:#ffd633;left:1180px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
+			<?php cart(); ?>
+			
+			<div id="shopping_cart"> 
+					
+					<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
+					</span>
+					<p style="left:620px;position:absolute;top:94px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
+					
+					
+					<a href='login_form.php' style='color:white;font-size:120%;margin-left:490px;'>Login</a>
+					
+					<a href="cart.php" style="color:#ffd633;left:1200px;top:94px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
 			</div>
-			<?php getIp()?>
 			
-				<div id="products_box" >
-	<?php 
-	$get_pro = "select * from products";
-
-	$run_pro = mysqli_query($con, $get_pro); 
-	
-	while($row_pro=mysqli_fetch_array($run_pro)){
-	
-		$pro_id = $row_pro['product_id'];
-		$pro_cat = $row_pro['product_cat'];
-		$pro_brand = $row_pro['product_brand'];
-		$pro_title = $row_pro['product_title'];
-		$pro_price = $row_pro['product_price'];
-		$pro_image = $row_pro['product_image'];
-	
-		echo "
-				<div id='single_product'>
+				<div id="products_box">
 				
-					<h3>$pro_title</h3>
-					
-					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
-					
-					<p><b> $ $pro_price </b></p>
-					
-					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
-					
-					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
-				
-				</div>
-		
-		
-		";
-	
-	}
-	?>
+				<?php getPro(); ?>
+				<?php getCatPro(); ?>
+				<?php getBrandPro(); ?>
 				
 				</div>
 			

@@ -1,8 +1,7 @@
 <!DOCTYPE>
 <?php 
-
+session_start();
 include("functions/functions.php");
-
 ?>
 <html>
 	<head>
@@ -232,128 +231,37 @@ margin-bottom:10px;
 		
 			<div id="content_area">
 			
-			<div id="shopping_cart">
-			<span style="color:#ffd633;float:right; margin-right:860px;font-size:200%;line-height:40px;">Welcome Guest!</span>
-			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart: Total Items:  Total Price: </p>
-			
-			<a href="#" style="color:#ffd633;left:1100px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
+			<div id="shopping_cart"> 
+					
+				<div id="shopping_cart"> 
+					
+					<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
+					</span>
+					<p style="left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
+					
+					
+					<a href='login_form.php' style='color:white;font-size:120%;margin-left:490px;'>Login</a>
+					
+					<a href="cart.php" style="color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
 			</div>
+						</div>
 			
 				<div id="products_box" style="margin-left:-20px;">
 					<?php 
-	if(isset($_GET['pro_id'])){
 	
-	$product_id = $_GET['pro_id'];
-	
-	$get_pro = "select * from products where product_id='$product_id'";
-
-	$run_pro = mysqli_query($con, $get_pro); 
-	
-	while($row_pro=mysqli_fetch_array($run_pro)){
-	
-		$pro_id = $row_pro['product_id'];
-		$pro_title = $row_pro['product_title'];
-		$pro_price = $row_pro['product_price'];
-		$pro_image = $row_pro['product_image'];
-		$pro_desc = $row_pro['product_desc'];
-	
-		echo "
-				<div id='single_product'>
-				
-					<h3>$pro_title</h3>
-					
-					<img src='admin_area/product_images/$pro_image' width='400' height='300' />
-					
-					<p><b> $ $pro_price </b></p>
-					
-					<p>$pro_desc </p>
-					
-					<a href='all_products.php' style='float:left;'>Go Back</a>
-					
-					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
-				
-				</div>
-		
-		
-		";
-	
-	}
-	}
 ?>
 				
 				
 				</div>
 			<div id="products_box" >
 					<?php 
-	if(isset($_GET['pro_id'])){
 	
-	$product_id = $_GET['pro_id'];
-	
-	$get_pro = "select * from products where product_id='$product_id'";
-
-	$run_pro = mysqli_query($con, $get_pro); 
-	
-	while($row_pro=mysqli_fetch_array($run_pro)){
-	
-		$pro_id = $row_pro['product_id'];
-		$pro_title = $row_pro['product_title'];
-		$pro_price = $row_pro['product_price'];
-		$pro_image = $row_pro['product_image'];
-		$pro_desc = $row_pro['product_desc'];
-	
-		echo "
-				<div id='single_product'>
-				
-					<h3>Product Description</h3>
-					
-					<p>$pro_desc </p>
-								
-				</div>
-		
-		
-		";
-	
-	}
-	}
 ?>
 				
 				
 				</div>
 		<div id="products_box" >
-					<?php 
-	if(isset($_GET['pro_id'])){
-	
-	$product_id = $_GET['pro_id'];
-	
-	$get_pro = "select * from products where product_id='$product_id'";
-
-	$run_pro = mysqli_query($con, $get_pro); 
-	
-	while($row_pro=mysqli_fetch_array($run_pro)){
-	
-		$pro_id = $row_pro['product_id'];
-		$pro_title = $row_pro['product_title'];
-		$pro_price = $row_pro['product_price'];
-		$pro_image = $row_pro['product_image'];
-		$pro_desc = $row_pro['product_desc'];
-	
-		echo "
-				<div id='single_product'>
-				
-					<h3>Ratings</h3>
-					<p>Five Stars: 15%</p>
-					<p>Four Stars: 40%</p>
-					<p>Three Stars: 25%</p>
-					<p>Two Stars: 20%</p>
-					<p>One Star: 5%</p>
-				</div>
-		
-		
-		";
-	
-	}
-	}
-?>
+					
 				
 				
 				</div>

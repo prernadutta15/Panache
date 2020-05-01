@@ -119,7 +119,7 @@ margin-bottom:10px;
 	
 	#single_product img {height:45vh;}
 	
-	#shopping_cart {width:150%; height:50px; background:black; margin-top:-20px;color:white;margin-left:-300px; margin-bottom:20px;}
+	#shopping_cart {width:150%; height:50px; background:black; margin-top:-20px;color:white;margin-left:-380px; margin-bottom:20px;}
 
 //hello
 
@@ -131,14 +131,7 @@ margin-bottom:10px;
 	
 	<!--Main Container starts here-->
 	<div class="main_wrapper">
-	<!--<div class="header_wrapper">
-		
-			<a href="index.php"><img id="logo" src="images/logo.gif" /> </a>
-			<img id="banner" src="images/ad_banner.gif" />
-		</div>-->
-		<!--Header ends here-->
-		
-		<!--Navigation Bar starts-->
+	
 		<div class="menubar" style="height:18%;">
 			
 		
@@ -155,8 +148,9 @@ margin-bottom:10px;
 	<div id="form" style="height:40px;width:200px; float:left; margin-top:-55px;margin-left:10px">
   <form method="get" action ="results.php" enctype="multipart/form-data" >
 	<input type="text" style="height:35px; width:195px; font-size:70%;" name="user_query" placeholder="Search a product"/>
-	<p style="position:absolute;"><input type="submit" style="height:35px; width:70px; font-size:80%; color:gray; float:left; margin-top:-35px;margin-left:195px;" name="search" value="Search" /></p>
 	
+	<p style="position:absolute;"><input type="submit" style="height:35px; width:70px; font-size:80%; color:gray; float:left; margin-top:-35px;margin-left:195px;" name="search" value="Search" /></p>
+	</form>
   </div>
 	<li class="shop-nav" ><div class="panache" style="color:#c600eb; padding-left:2px;margin-left:70px;">P</div><div class="panache" style="color:#25ff00; ">A</div><div class="panache" style="color:#ce1127;">N</div><div class="panache" style="color:#14dbff; ">A</div><div class="panache" style="color:#ff148f; ">C</div><div class="panache" style="color:#39ff14; ">H</div><div class="panache" style="color:#ff164d; ">E</div></li>
 	
@@ -172,7 +166,7 @@ margin-bottom:10px;
   <div class="card" style="color:#FF00CC;border:white;background:white; width:200px;padding:0px;margin-left:-35px;">
     <div class="card-header" style="color:#FF00CC;border:white;background:white;" id="headingOne">
       <h5 class="mb-0">
-        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:200%; color:#FF00CC;border:white;background:white; margin-left:10px; margin-top:40px;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
+        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:160%; color:#FF00CC;border:white;background:white; margin-left:10px; margin-top:40px;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
          Categories
         </button>
       </h5>
@@ -200,7 +194,7 @@ margin-bottom:10px;
   <div class="card" style="color:#FF00CC;border:white;background:white; width:200px;padding:0px;margin-left:-35px;">
     <div class="card-header" style="color:#FF00CC;border:white;background:white;" id="headingOne">
      
-        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:200%; color:#FF00CC;border:white;background:white;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
+        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:160%; color:#FF00CC;border:white;background:white;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
         Advanced Filters
         </button>
       
@@ -234,22 +228,18 @@ margin-bottom:10px;
 			
 		
 			<div id="content_area">
-			
+			<?php cart()?>
 			<div id="shopping_cart">
-			<span style="color:#ffd633;float:right; margin-right:860px;font-size:200%;line-height:40px;">Welcome Guest!</span>
-			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart: Total Items:  Total Price: </p>
+			<span style="color:#ffd633;float:right; margin-right:460px;font-size:200%;line-height:40px;">Welcome Guest!</span>
+			<p style="margin-left:20px;left:750px;position:absolute;color:white;float:right;line-height:40px;font-size:100%;">Shopping Cart-> Total Items: <?php total_items(); ?>  Total Price: <?php total_price(); ?> </p>
 			
-			<a href="#" style="color:#ffd633;left:1100px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
+			<a href="cart.php" style="color:#ffd633;left:1180px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go To Cart</a>
 			</div>
+			<?php getIp()?>
 			
 				<div id="products_box" >
-		<?php 
-	
-	if(isset($_GET['search'])){
-	
-	$search_query = $_GET['user_query'];
-	
-	$get_pro = "select * from products where product_keywords like '%$search_query%'";
+	<?php 
+	$get_pro = "select * from products";
 
 	$run_pro = mysqli_query($con, $get_pro); 
 	
@@ -273,7 +263,7 @@ margin-bottom:10px;
 					
 					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
 					
-					<a href='all_products.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
+					<a href='index.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
 				
 				</div>
 		
@@ -281,9 +271,7 @@ margin-bottom:10px;
 		";
 	
 	}
-	}
 	?>
-			
 				
 				</div>
 			

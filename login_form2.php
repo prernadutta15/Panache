@@ -1,6 +1,3 @@
-<?php 
-include("includes/db.php");
-?>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="all" href="login.css" />
@@ -60,7 +57,7 @@ $('.btn').click(function(){
     <div class="finger"></div>
   </div>
 </div>
-<form method="post" action="">
+<form method="post" action="connect_login.php">
   <div class="hand"></div>
   <div class="hand rgt"></div>
   <h1>Panda Login</h1>
@@ -73,7 +70,7 @@ $('.btn').click(function(){
     <input id="password" type="password" required="required" name="pass" class="form-control"/>
     <label class="form-label">Password</label>
     <p class="alert">Enter Credentials..!!</p>
-    <input type="submit" name="login" value="Login" />
+    <button class="btn"><a href="all_products.php" style="text-decoration:none">Login </a></button>
   </div>
 </form>
 
@@ -113,7 +110,7 @@ $('.btn').click(function(){
 		else {
 		$_SESSION['customer_email']=$c_email; 
 		
-		echo "<script>alert('You logged in successfully, Thanks!!')</script>";
+		echo "<script>alert('You logged in successfully, Thanks!!!!')</script>";
 		echo "<script>window.open('all_products.php','_self')</script>";
 		
 		
