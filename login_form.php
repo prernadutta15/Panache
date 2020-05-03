@@ -1,5 +1,6 @@
 <?php 
 include("includes/db.php");
+include("functions/functions.php");
 ?>
 <html>
 <head>
@@ -60,7 +61,7 @@ $('.btn').click(function(){
     <div class="finger"></div>
   </div>
 </div>
-<form method="post" action="">
+<form method="post" action="all_products.php">
   <div class="hand"></div>
   <div class="hand rgt"></div>
   <h1>Panda Login</h1>
@@ -76,8 +77,8 @@ $('.btn').click(function(){
     <input type="submit" name="login" value="Login" />
   </div>
 </form>
-
-<?php 
+<!-- We are going to check for credentials in all_product.php page
+<?php
 	if(isset($_POST['login'])){
 	
 		$c_email = $_POST['email'];
@@ -119,9 +120,8 @@ $('.btn').click(function(){
 		
 		}
 	}
-	
-	
-	?>
+		
+	?> -->
 	
 </body>
 </html>
