@@ -289,7 +289,7 @@ margin-bottom:10px;
 				}
 				else
 				{					
-					echo "<script>alert('You logged out successfully, Thanks!!')</script>";					
+					//echo "<script>alert('You logged out successfully, Thanks!!')</script>";					
 					
 					echo "<span style='font-size:17px; padding-left:435px; line-height:40px; '>Welcome Guest!</span>";
 					

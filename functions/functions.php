@@ -23,28 +23,38 @@ if (mysqli_connect_errno())
   
 //creating the shopping cart
 function cart(){
-	
-	//echo "<script>alert('Product Adding cart!!')</script>";
-	//if(isset($_GET['add123'])){
-		//echo "<script>alert('Product Adding cart ifffff!!')</script>";
+		
 	global $con; 
-	$ip = getIp();	
-	//$pro_id = $pid;
-	$pro_id = $_GET['p_code'];
-	//$pid = $_GET['code'];
-	$c_email = $_SESSION['customer_email'];
+	$ip = getIp();		
+	$pro_id = $_GET['p_code'];	
+	if(isset($_SERVER['customer_email']))
+		$c_email = $_SESSION['customer_email'];
+	else
+		$c_email = "guest@gmail.com";
 	$qty = $_GET['quantity'];
-	
-	$sql = "INSERT INTO cart (p_id, customer_email, ip_add, qty) VALUES ('$pro_id', '$c_email', '$ip', '$qty')";
-	//$run_price = mysqli_query($con, $sql);
-	if (mysqli_query($con, $sql)) {
-		echo "<script>alert('Product Added!!')</script>";
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($con);
+		
+	$sql_cart = "select * from cart where p_id='$pro_id' and customer_email='$c_email'";
+	$run_cart = mysqli_query($con, $sql_cart);
+	//$p_price=mysqli_fetch_array($run_price)
+	if($get_cart=mysqli_fetch_array($run_cart))
+	{	
+		$new_qty = $get_cart['qty'];
+		$new_qty += $qty;
+		$sql = "UPDATE cart SET qty='$new_qty' WHERE p_id='$pro_id' and customer_email='$c_email'";
+		if (mysqli_query($con, $sql)) {
+		  //echo "Record updated successfully";
+		} else {
+		  echo "Error updating record: " . mysqli_error($conn);
+		}
 	}
-	//echo "<script>window.open('all_products.php','_self')</script>";
-	//echo "<script>location.href='all_products.php'</script>";
-	//}
+	else{
+		$sql = "INSERT INTO cart (p_id, customer_email, ip_add, qty) VALUES ('$pro_id', '$c_email', '$ip', '$qty')";	
+		if (mysqli_query($con, $sql)) {
+			echo "<script>alert('Product Added!!')</script>";
+		} else {
+			echo "Error: " . $sql . "<br>" . mysqli_error($con);
+		}
+	}
 
 }
  // getting the total added items
@@ -117,14 +127,12 @@ function getPro(){
 		
 		while($row_pro=mysqli_fetch_array($run_pro)){
 	
-		$pro_id = $row_pro['product_id'];
-		$pro_cat = $row_pro['product_cat'];
-		$pro_brand = $row_pro['product_brand'];
-		$pro_title = $row_pro['product_title'];
-		$pro_price = $row_pro['product_price'];
-		$pro_image = $row_pro['product_image'];
-		//$_GET['add_cart'] = $pro_id;
-			//Adding my code to call function cart			
+			$pro_id = $row_pro['product_id'];
+			$pro_cat = $row_pro['product_cat'];
+			$pro_brand = $row_pro['product_brand'];
+			$pro_title = $row_pro['product_title'];
+			$pro_price = $row_pro['product_price'];
+			$pro_image = $row_pro['product_image'];						
 			echo "
 			<div id='single_product'>
 			
@@ -143,6 +151,7 @@ function getPro(){
 			//action='functions/functions.php?code=$pro_id'
 		//<input type='submit' style='height:40px; width:125px; font-size:90%; float:right' name='add123' value='Add to Cart' /></a>
 		//<a href='all_products.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
+			//Adding my code to call function cart	
 			if(isset($_GET['add123']))
 			{	
 				//$_SERVER['REQUEST_METHOD']=="GET" && 		
