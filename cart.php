@@ -161,7 +161,7 @@ margin-bottom:10px;
 			<a href="#"><div class="logo"><img class="avatar" src="images/avatar.svg"></div></a>
 <nav class="primary-nav">
   <ul class="primary-navigation">
-    <li class="work-nav active"><a href="#">Home</a></li>
+    <li class="work-nav active"><a href="all_products.php">Home</a></li>
     <li class="play-nav"><a href="#">About Us</a></li>
     <li class="about-nav"><a href="#">Contact Us</a></li>
    
@@ -249,14 +249,35 @@ margin-bottom:10px;
 		
 			
 		
-			<div id="content_area">
-			<?php cart()?>
+			<div id="content_area">			
+			
 			<div id="shopping_cart"> 
 					
 				
 					<div id="shopping_cart"> 
 					
-					<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
+			<?php	if(isset($_SESSION['customer_email']))
+					{
+						echo "<span style='font-size:17px; padding-left:735px; line-height:40px; '>Welcome: ".$_SESSION['customer_email']."</span>";
+							//<span style="font-size:17px; padding-left:535px; line-height:40px; ">
+						echo "<p style='left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items:   Total Price: </p>";
+							//<p style="left:420px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>				
+						echo "<a href='logout.php' style='color:white;font-size:120%;margin-left:530px;'>Logout</a>";
+							//<a href='login_form.php' style='color:white;font-size:120%;margin-left:90px;'>Login</a>
+						echo "<a href='all_products.php' style='color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";
+					}
+					else
+					{
+						echo "<span style='font-size:17px; padding-left:835px; line-height:40px; '>Welcome Guest!</span>";
+					
+						echo "<p style='left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items:   Total Price: </p>";
+										
+						echo "<a href='login_form.php' style='color:white;font-size:120%;margin-left:570px;'>Login</a>";
+					
+						echo "<a href='all_products.php' style='color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";
+					}
+					?>
+				<!--	<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
 					</span>
 					<p style="left:420px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
 					
@@ -264,6 +285,7 @@ margin-bottom:10px;
 					<a href='login_form.php' style='color:white;font-size:120%;margin-left:90px;'>Login</a>
 					
 					<a href="all_products.php" style="color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go Back</a>
+				-->	
 			</div>
 					
 					
@@ -288,8 +310,8 @@ margin-bottom:10px;
 		global $con; 
 		
 		$ip = getIp(); 
-		
-		$sel_price = "select * from cart where ip_add='$ip'";
+		$c_mail = $_SESSION['customer_email'];
+		$sel_price = "select * from cart where ip_add='$ip' and customer_email='$c_mail'";
 		
 		$run_price = mysqli_query($con, $sel_price); 
 		

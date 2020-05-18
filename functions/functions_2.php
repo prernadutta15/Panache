@@ -22,15 +22,14 @@ if (mysqli_connect_errno())
   
   
 //creating the shopping cart
-function cart(){
+function cart($pid){
 	
-	//echo "<script>alert('Product Adding cart!!')</script>";
+	echo "<script>alert('Product Adding cart!!')</script>";
 	//if(isset($_GET['add123'])){
 		//echo "<script>alert('Product Adding cart ifffff!!')</script>";
 	global $con; 
 	$ip = getIp();	
-	//$pro_id = $pid;
-	$pro_id = $_GET['p_code'];
+	$pro_id = $pid;
 	//$pid = $_GET['code'];
 	$c_email = $_SESSION['customer_email'];
 	$qty = $_GET['quantity'];
@@ -43,7 +42,6 @@ function cart(){
 		echo "Error: " . $sql . "<br>" . mysqli_error($con);
 	}
 	//echo "<script>window.open('all_products.php','_self')</script>";
-	//echo "<script>location.href='all_products.php'</script>";
 	//}
 
 }
@@ -135,7 +133,6 @@ function getPro(){
 				<p><b> Price: $pro_price </b></p>
 				<form method='get' >
 				<a href='details.php' style ='margin-right:10px'>Details</a>
-				<input type='text' style ='height:0px; width:0px;' name='p_code' value='$pro_id'>
 				<input type='text' class='product-quantity' style ='height:40px; width:35px; font-size:90%;' name='quantity' value='1' size='2' /><a href='all_products.php?add_cart=$pro_id'><input type='submit' <input type='submit' style='height:40px; width:125px; font-size:90%; float:right' name='add123' value='Add to Cart' class='btnAddAction' />
 				</form>
 			</div>				
@@ -147,7 +144,7 @@ function getPro(){
 			{	
 				//$_SERVER['REQUEST_METHOD']=="GET" && 		
 				$_GET['add123'] = NULL;
-				cart();			
+				cart($pro_id);			
 			}
 		}
 		}

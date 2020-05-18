@@ -226,8 +226,7 @@ margin-bottom:10px;
 		<div class="content_wrapper">
 		
 			<div id="content_area">
-			
-			<?php cart(); ?>
+						
 			<div id="shopping_cart">
 			<?php
 				if(isset($_POST['login']))
@@ -244,7 +243,7 @@ margin-bottom:10px;
 					if($check_customer==0)
 					{					
 						echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
-						echo "<script>window.open('login.php','_self')</script>";
+						echo "<script>window.open('login_form.php','_self')</script>";
 						exit();
 					}
 					$ip = getIp(); 
@@ -264,11 +263,11 @@ margin-bottom:10px;
 					
 					}
 					else {
+						
 					$_SESSION['customer_email']=$c_email; 
-					
 					echo "<script>alert('You logged in successfully, Thanks!!')</script>";					
 					
-					echo "<span style='font-size:17px; padding-left:335px; line-height:40px; '>Welcome ".$_SESSION['customer_email']."</span>";
+					echo "<span style='font-size:17px; padding-left:335px; line-height:40px; '>Welcome: ".$_SESSION['customer_email']."</span>";
 					
 					echo "<p style='left:620px;position:absolute;top:94px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items:   Total Price: </p>";
 										
@@ -277,10 +276,20 @@ margin-bottom:10px;
 					echo "<a href='cart.php' style='color:#ffd633;left:1200px;top:94px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
 					//echo "<script>window.open('all_products.php','_self')</script>";										
 					}
-				}				
-				else
+				}
+				else if(isset($_SESSION['customer_email']))
 				{
-					echo "<script>alert('You logged out successfully, Thanks!!')</script>";
+					echo "<span style='font-size:17px; padding-left:335px; line-height:40px; '>Welcome: ".$_SESSION['customer_email']."</span>";
+					
+					echo "<p style='left:620px;position:absolute;top:94px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items:   Total Price: </p>";
+										
+					echo "<a href='logout.php' style='color:white;font-size:120%;margin-left:530px;'>Logout</a>";
+					
+					echo "<a href='cart.php' style='color:#ffd633;left:1200px;top:94px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";
+				}
+				else
+				{					
+					echo "<script>alert('You logged out successfully, Thanks!!')</script>";					
 					
 					echo "<span style='font-size:17px; padding-left:435px; line-height:40px; '>Welcome Guest!</span>";
 					
@@ -298,8 +307,8 @@ margin-bottom:10px;
 				<div id="products_box">
 				
 				<?php getPro(); ?>
-				<?php getCatPro(); ?>
-				<?php getBrandPro(); ?>
+				<!--<?php getCatPro(); ?>
+				<?php getBrandPro(); ?>-->
 				
 				</div>
 			
