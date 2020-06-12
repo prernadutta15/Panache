@@ -51,7 +51,7 @@ session_start();
 		
 		
 		}
-		
+			
 			// getting Quantity of the product 
 			$get_qty = "select * from cart where p_id='$pro_id'";
 			
@@ -88,11 +88,14 @@ session_start();
 			
 			//payment details from paypal
 			
-			$amount = $_GET['amt']; 
+			$amount = $total;
+				echo "<script>alert($amount);</script>";
 			
-			$currency = $_GET['cc']; 
+			//$currency = $_GET['cc']; 
+			$currency= 'Rupee';
+			$trx_id=mt_rand();
 			
-			$trx_id = $_GET['tx']; 
+			//$trx_id = $_GET['tx']; 
 
 			$invoice = mt_rand();
 				
@@ -114,13 +117,13 @@ session_start();
 		if($amount==$total){
 		
 		echo "<h2>Welcome:" . $_SESSION['customer_email']. "<br>" . "Your Payment was successful!</h2>";
-		echo "<a href='http://www.onlinetuting.com/myshop/customer/my_account.php'>Go to your Account</a>";
+		echo "<a href='customer/my_account.php'>Go to your Account</a>";
 		
 		}
 		else {
 		
 		echo "<h2>Welcome Guest, Payment was failed</h2><br>";
-		echo "<a href='http://www.onlinetuting.com/myshop'>Go to Back to shop</a>";
+		echo "<a href='all_products.php'>Go to Back to shop</a>";
 		
 		}
 		
@@ -143,7 +146,6 @@ session_start();
 					
 					<tr align='center'>
 						<th><b>S.N</b></th>
-						<th><b>Product Name</b></th>
 						<th><b>Quantity</b></th>
 						<th><b>Paid Amount</th></th>
 						<th>Invoice No</th>
@@ -151,7 +153,6 @@ session_start();
 					
 					<tr align='center'>
 						<td>1</td>
-						<td>$pro_name</td>
 						<td>$qty</td>
 						<td>$amount</td>
 						<td>$invoice</td>
@@ -161,19 +162,20 @@ session_start();
 				
 				<h3>Please go to your account and see your order details!</h3>
 				
-				<h2> <a href='http://www.onlinetuting.com/myshop'>Click here</a> to login to your account</h2>
+				<h2> <a href='all_products.php'>Click here</a> to login to your account</h2>
 				
-				<h3> Thank you for your order @ - www.onlinetuting.com</h3>
+				<h3> Thank you for your ordering with Panache!</h3>
 				
 			</html>
 			
 			";
 			
-			mail($c_email,$subject,$message,$headers);
-			
+		
+			echo $message;
 				
 
 ?>
+
 </body>
 </html>
 

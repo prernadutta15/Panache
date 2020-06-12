@@ -1,21 +1,21 @@
 <!DOCTYPE>
 <?php 
-session_start();
-include("functions/functions.php");
+
+	include("functions/functions.php");
 
 ?>
 <html>
 	<head>
 		<title>My Online Shop</title>
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="syles.css" />
-<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<style>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="syles.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
 	#form {float:right; padding-right:8px; line-height:50px;}
 .panache{
 font-size:250%;
@@ -130,8 +130,7 @@ margin-bottom:10px;
 	
 	<!--Main Container starts here-->
 	<div class="main_wrapper">
-	
-		<div style="position:fixed;top:35px;left:1px;font-size:370%;z-index:2;font-weight:bold;color:#0cf;border:6px dotted #f0c;">Panache</div>
+	<div style="position:fixed;top:35px;left:1px;font-size:370%;z-index:2;font-weight:bold;color:#0cf;border:6px dotted #f0c;">Panache</div>
 	
 		<div class="menubar" style="height:18=4%;position:relative;z-index:3">
 			
@@ -140,8 +139,8 @@ margin-bottom:10px;
 <nav class="primary-nav">
   <ul class="primary-navigation">
     <li class="work-nav active"><a href="#">Home</a></li>
-    <li class="play-nav"><a href="#">Customise Form</a></li>		
-    <li class="about-nav"><a href="#">Customised Gift</a></li>
+    <li class="play-nav"><a href="#">About Us</a></li>
+    <li class="about-nav"><a href="#">Contact Us</a></li>
    
     <li class="shop-nav"><a href="#">Gift Items</a></li>
 	<li class="shop-nav"><a href="#">Login</a></li>
@@ -225,114 +224,148 @@ margin-bottom:10px;
 		<!--Navigation Bar ends-->
 	
 		<!--Content wrapper starts-->
-		<div class="content_wrapper">
+		<div class="content_wrapper" style="margin-top:20px;">
+		
+			
 		
 			<div id="content_area">
 			
-				<?php cart(); ?>
-				
-				<div id="shopping_cart" style="position:relative;z-index:3"> 
-						
-					<span style="font-size:17px; padding-left:535px; line-height:40px; ">
+			<div id="shopping_cart" style="position:relative;z-index:3"> 
 			
-					<?php
+			<span style="font-size:17px; padding-left:535px; line-height:40px; ">
+			<?php
+				if(isset($_POST['login']))
+				{				
+					$c_email = $_POST['email'];
+					$c_pass = $_POST['pass'];
 					
-					if(isset($_POST['login']))
-					{				
-						$c_email = $_POST['email'];
-						$c_pass = $_POST['pass'];
-						
-						$sel_c = "select * from customers where customer_pass='$c_pass' AND customer_email='$c_email'";
-						
-						$run_c = mysqli_query($con, $sel_c);
-						
-						$check_customer = mysqli_num_rows($run_c); 
-						
-						if($check_customer==0)
-						{					
-							echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
-							echo "<script>window.open('login_form.php','_self')</script>";
-							exit();
-						}
-						$ip = getIp(); 
-						
-						$sel_cart = "select * from cart where ip_add='$ip'";
-						
-						$run_cart = mysqli_query($con, $sel_cart); 
-						
-						$check_cart = mysqli_num_rows($run_cart); 
-						
-						if($check_customer>0 AND $check_cart==0){
-						
-						$_SESSION['customer_email']=$c_email; 
-						
-						echo "<script>alert('You logged in successfully, Thanks!')</script>";
-						echo "<script>window.open('customer/my_account.php','_self')</script>";
-						
-						}
-						else {
-							
-						$_SESSION['customer_email']=$c_email; 
-						echo "<script>alert('You logged in successfully, Thanks!!')</script>";		
-
-						$total=total_items();
-						
-						$price=total_price();
-						
-						echo "<span style='font-size:18px;font-weight:bold;line-height:40px;margin-left:-200px;color:#ffd633;'>Welcome: ".$_SESSION['customer_email']."</span>";
-						
-						echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
-											
-						echo "<a href='logout.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:530px;'>Logout</a>";
-						
-						echo "<a href='cart.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
-						//echo "<script>window.open('all_products.php','_self')</script>";										
-						}
-					}
-					else if(isset($_SESSION['customer_email']))
-					{
-						$total=total_items();
-						
-						$price=total_price();
-						
-						echo "<span style='font-size:18px;font-weight:bold;line-height:40px;margin-left:-200px;color:#ffd633; '>Welcome: ".$_SESSION['customer_email']."</span>";
-						
-						echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
-											
-						echo "<a href='logout.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:530px;'>Logout</a>";
-						
-						echo "<a href='cart.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";
-					}
-					else
+					$sel_c = "select * from customers where customer_pass='$c_pass' AND customer_email='$c_email'";
+					
+					$run_c = mysqli_query($con, $sel_c);
+					
+					$check_customer = mysqli_num_rows($run_c); 
+					
+					if($check_customer==0)
 					{					
-						//echo "<script>alert('You logged out successfully, Thanks!!')</script>";	
-
-							$total=total_items();
-						
-						$price=total_price();
-						
-						
-						echo "<span style='font-size:17px;color:#ffd633;font-weight:bold;line-height:40px;margin-left:-120px; '>Welcome Guest!</span>";
-						
-						echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
-											
-						echo "<a href='login_form.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:570px;'>Login</a>";
-						
-						echo "<a href='cart.php' style='color:#ffd633;font-weight:bold;left:1290px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
+						echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
+						echo "<script>window.open('login_form.php','_self')</script>";
+						exit();
 					}
+					$ip = getIp(); 
 					
-					?>				
+					$sel_cart = "select * from cart where ip_add='$ip'";
+					
+					$run_cart = mysqli_query($con, $sel_cart); 
+					
+					$check_cart = mysqli_num_rows($run_cart); 
+					
+					if($check_customer>0 AND $check_cart==0){
+					
+					$_SESSION['customer_email']=$c_email; 
+					
+					echo "<script>alert('You logged in successfully, Thanks!')</script>";
+					echo "<script>window.open('customer/my_account.php','_self')</script>";
+					
+					}
+					else {
+						
+					$_SESSION['customer_email']=$c_email; 
+					echo "<script>alert('You logged in successfully, Thanks!!')</script>";		
+
+					$total=total_items();
+					
+					$price=total_price();
+					
+					echo "<span style='font-size:18px;font-weight:bold;line-height:40px;margin-left:-120px;color:#ffd633;'>Welcome: ".$_SESSION['customer_email']."</span>";
+					
+					echo "<p style='left:710px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
+										
+					echo "<a href='logout.php' style='color:white;font-size:120%;margin-left:530px;'>Logout</a>";
+					
+					echo "<a href='cart.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
+					//echo "<script>window.open('all_products.php','_self')</script>";										
+					}
+				}
+				else if(isset($_SESSION['customer_email']))
+				{
+					$total=total_items();
+					
+					$price=total_price();
+					
+					echo "<span style='font-size:18px;font-weight:bold;line-height:40px;margin-left:-120px;color:#ffd633; '>Welcome: ".$_SESSION['customer_email']."</span>";
+					
+					echo "<p style='left:710px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
+										
+					echo "<a href='logout.php' style='color:white;font-size:120%;margin-left:530px;'>Logout</a>";
+					
+					echo "<a href='cart.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";
+				}
+				else
+				{
+					//echo "<script>alert('You logged out successfully, Thanks!!')</script>";	
+
+					$total=total_items();
+					
+					$price=total_price();
+					
+					
+					echo "<span style='font-size:17px;color:#ffd633;font-weight:bold;line-height:40px;margin-left:-120px; '>Welcome Guest!</span>";
+					
+					echo "<p style='left:710px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
+										
+					echo "<a href='login_form.php' style='color:white;font-size:120%;margin-left:570px;'>Login</a>";
+					
+					echo "<a href='cart.php' style='color:#ffd633;font-weight:bold;left:1290px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
+				}
+				
+				?>				</div>
+			
+				<div id="products_box" >
+		<?php 
+	
+	if(isset($_POST['filterCat'])){
+	
+	$relationship = $_POST['relationship'];
+	$age = $_POST['age'];
+	echo "<script>alert('Relation is $relationship')</script>";	
+	$get_pro = "select * from products where product_keywords like '%$relationship%' and age_group like '%$age%'";
+
+	$run_pro = mysqli_query($con, $get_pro); 
+	
+	while($row_pro=mysqli_fetch_array($run_pro)){
+	
+		$pro_id = $row_pro['product_id'];
+		$pro_cat = $row_pro['product_cat'];
+		$pro_brand = $row_pro['product_brand'];
+		$pro_title = $row_pro['product_title'];
+		$pro_price = $row_pro['product_price'];
+		$pro_image = $row_pro['product_image'];
+	
+		echo "
+				<div id='single_product'>
+				
+					<h3>$pro_title</h3>
+					
+					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
+					
+					<p><b> $ $pro_price </b></p>
+					
+					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
+					
+					<a href='all_products.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</button></a>
+				
 				</div>
-				
-				
-				<div id="products_box">													
 		
-					<?php 
-						include("category_form.php"); 
-					?>
-					
+		
+		";
+	
+	}
+	}
+	?>
+			
+				
 				</div>
-								
+			
 			</div>
 		</div>
 		<!--Content wrapper ends-->

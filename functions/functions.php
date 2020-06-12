@@ -4,10 +4,12 @@ $con = mysqli_connect("localhost","root","","ecommerce");
 
 if (mysqli_connect_errno())
   {
-  echo "The Connection was not established: " . mysqli_connect_error();
+	echo "The Connection was not established: " . mysqli_connect_error();
   }
- // getting the user IP address
-  function getIp() {
+  
+// getting the user IP address
+function getIp() 
+{
     $ip = $_SERVER['REMOTE_ADDR'];
  
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -18,15 +20,59 @@ if (mysqli_connect_errno())
  
     return $ip;
 }
-  
+
+//Cart function
+function cart(){
+
+
+if(isset($_GET['add_cart'])){
+
+	global $con; 
+	
+	$ip = getIp();
+	
+	if(isset($_SESSION['customer_email']))
+		$c_email = $_SESSION['customer_email'];
+	else
+		$c_email = "guest@gmail.com";
+	
+	$pro_id = $_GET['add_cart'];
+
+	$check_pro = "select * from cart where ip_add='$ip' AND p_id='$pro_id' AND customer_email='$c_email'";
+	
+	$run_check = mysqli_query($con, $check_pro); 
+	
+	
+	
+	if(mysqli_num_rows($run_check)>0){
+
+	//echo "<script>alert('Already Added')</script>";
+	
+	}
+	else {
+	
+	$insert_pro = "insert into cart (p_id,customer_email,ip_add,qty) values ('$pro_id','$c_email','$ip',1)";
+	
+	$run_pro = mysqli_query($con, $insert_pro); 
+	
+	echo "<script>alert('Product Added to Cart!')</script>";
+	
+	
+	}
+	
+}
+
+}
+
   
   
 //creating the shopping cart
-function cart(){
+function cart1(){
 		
 	global $con; 
 	$ip = getIp();		
 	$pro_id = $_GET['p_code'];	
+	echo "<script>alert($pro_id);</script>"; 
 	if(isset($_SERVER['customer_email']))
 		$c_email = $_SESSION['customer_email'];
 	else
@@ -35,11 +81,14 @@ function cart(){
 		
 	$sql_cart = "select * from cart where p_id='$pro_id' and customer_email='$c_email'";
 	$run_cart = mysqli_query($con, $sql_cart);
+	//echo "<script>alert('till here');</script>"; 
 	//$p_price=mysqli_fetch_array($run_price)
 	if($get_cart=mysqli_fetch_array($run_cart))
 	{	
+		
 		$new_qty = $get_cart['qty'];
 		$new_qty += $qty;
+		echo "<script>alert('$new_qty');</script>"; 
 		$sql = "UPDATE cart SET qty='$new_qty' WHERE p_id='$pro_id' and customer_email='$c_email'";
 		if (mysqli_query($con, $sql)) {
 		  //echo "Record updated successfully";
@@ -59,13 +108,67 @@ function cart(){
 }
  // getting the total added items
  
- function total_items(){
- }
+function total_items(){
+ 						
+		global $con; 
+
+		$ip = getIp(); 
+		
+		if(isset($_SESSION['customer_email']))
+		$c_email = $_SESSION['customer_email'];
+		else
+		$c_email = "guest@gmail.com";
+		
+		$get_items = "select * from cart where ip_add='$ip' and customer_email='$c_email'";
+		
+		$run_items = mysqli_query($con, $get_items); 
+		
+		$count_items = mysqli_num_rows($run_items);
+		
+		return $count_items;
+	}
   
 // Getting the total price of the items in the cart 
 	
 	function total_price(){
 	
+		$total = 0;
+		
+		global $con; 
+		
+		$ip = getIp(); 
+		
+		if(isset($_SESSION['customer_email']))
+		$c_email = $_SESSION['customer_email'];
+		else
+		$c_email = "guest@gmail.com";
+		
+		$sel_price = "select * from cart where ip_add='$ip' and customer_email='$c_email'";
+		
+		$run_price = mysqli_query($con, $sel_price); 
+		
+		while($p_price=mysqli_fetch_array($run_price)){
+			
+			$pro_id = $p_price['p_id']; 
+			
+			$pro_price = "select * from products where product_id='$pro_id'";
+			
+			$run_pro_price = mysqli_query($con,$pro_price); 
+			
+			while ($pp_price = mysqli_fetch_array($run_pro_price)){
+			
+			$product_price = array($pp_price['product_price']);
+			
+			$values = array_sum($product_price);
+			
+			$total +=$values;
+			
+			}
+		
+		
+		}
+		
+		return $total;
 		
 	
 	}
@@ -119,48 +222,44 @@ function getPro(){
 	if(!isset($_GET['cat'])){
 		if(!isset($_GET['brand'])){
 
-		global $con; 
-		
-		$get_pro = "select * from products order by RAND() LIMIT 0,6";
-
-		$run_pro = mysqli_query($con, $get_pro); 
-		
-		while($row_pro=mysqli_fetch_array($run_pro)){
+	global $con; 
 	
-			$pro_id = $row_pro['product_id'];
-			$pro_cat = $row_pro['product_cat'];
-			$pro_brand = $row_pro['product_brand'];
-			$pro_title = $row_pro['product_title'];
-			$pro_price = $row_pro['product_price'];
-			$pro_image = $row_pro['product_image'];						
-			echo "
-			<div id='single_product'>
-			
-				<h3>$pro_title</h3>
+	$get_pro = "select * from products order by RAND() LIMIT 0,6";
+
+	$run_pro = mysqli_query($con, $get_pro); 
+	
+	while($row_pro=mysqli_fetch_array($run_pro)){
+	
+		$pro_id = $row_pro['product_id'];
+		$pro_cat = $row_pro['product_cat'];
+		$pro_brand = $row_pro['product_brand'];
+		$pro_title = $row_pro['product_title'];
+		$pro_price = $row_pro['product_price'];
+		$pro_image = $row_pro['product_image'];
+	
+		echo "
+				<div id='single_product'>
 				
-				<img src='admin_area/product_images/$pro_image' width='180' height='180' />
+					<h3>$pro_title</h3>
+					
+					<img src='admin_area/product_images/$pro_image' width='180' height='180' />
+					
+					<p><b> Price: $ $pro_price </b></p>
+					
+					<a href='details.php?pro_id=$pro_id' style='float:left;'>Details</a>
+					
+					<a href='all_products.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
 				
-				<p><b> Price: $pro_price </b></p>
-				<form method='get' >
-				<a href='details.php' style ='margin-right:10px'>Details</a>
-				<input type='text' style ='height:0px; width:0px;' name='p_code' value='$pro_id'>
-				<input type='text' class='product-quantity' style ='height:40px; width:35px; font-size:90%;' name='quantity' value='1' size='2' /><a href='all_products.php?add_cart=$pro_id'><input type='submit' <input type='submit' style='height:40px; width:125px; font-size:90%; float:right' name='add123' value='Add to Cart' class='btnAddAction' />
-				</form>
-			</div>				
-			";
-			//action='functions/functions.php?code=$pro_id'
-		//<input type='submit' style='height:40px; width:125px; font-size:90%; float:right' name='add123' value='Add to Cart' /></a>
-		//<a href='all_products.php?add_cart=$pro_id'><button style='float:right'>Add to Cart</button></a>
-			//Adding my code to call function cart	
-			if(isset($_GET['add123']))
-			{	
-				//$_SERVER['REQUEST_METHOD']=="GET" && 		
-				$_GET['add123'] = NULL;
-				cart();			
-			}
-		}
-		}
+				</div>
+		
+		
+		";
+	
 	}
+	}
+}
+
+
 }
 
 function getCatPro(){

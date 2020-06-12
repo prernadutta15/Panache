@@ -11,6 +11,7 @@ body {
 	 position: relative;
 	 width: 200px;
 	 margin: 50px auto;
+	 float:right;
 }
  .face {
 	 width: 200px;
@@ -218,6 +219,10 @@ body {
 	 transform: translateY(-180px);
 }
  h1 {
+	 color: #ff4081;
+	 font-family: 'Dancing Script', cursive;
+}
+ h2 {
 	 color: #ff4081;
 	 font-family: 'Dancing Script', cursive;
 }

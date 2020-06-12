@@ -2,7 +2,7 @@
 <?php 
 session_start();
 include("functions/functions.php");
-
+include("includes/db.php");
 ?>
 <html>
 	<head>
@@ -28,19 +28,18 @@ include("functions/functions.php");
 		}
 		</script>
 	<style>
+	input[type=checkbox]
+{
+  -webkit-appearance:checkbox;
+}
 	#form {float:right; padding-right:8px; line-height:50px;}
 .panache{
-font-size:150%;
+font-size:250%;
 display:inline;
 font-family: 'Bangers', cursive;
 padding-left:20px;
+}
 
-}
-#block
-{
-	position:relative;
-	margin-bottom:30px;
-}
 .main_wrapper{
 width:100%;
 height:auto;
@@ -120,13 +119,13 @@ background:white;
 	width:18%;
 	position: fixed;
 	margin-top:52px;
-	border-right:2px solid black;
-	background:#ffd633;
+	border:6px dotted #0cf;
+	background:white;
 }
 #products_box {
  
 text-align:center;
-margin-left:-40px;
+margin-left:0px;
 margin-bottom:10px;
  
 }
@@ -147,15 +146,10 @@ margin-bottom:10px;
 	
 	<!--Main Container starts here-->
 	<div class="main_wrapper">
-	<!--<div class="header_wrapper">
-		
-			<a href="index.php"><img id="logo" src="images/logo.gif" /> </a>
-			<img id="banner" src="images/ad_banner.gif" />
-		</div>-->
-		<!--Header ends here-->
-		
-		<!--Navigation Bar starts-->
-		<div class="menubar" style="height:18%;">
+	
+		<div style="position:fixed;top:35px;left:1px;font-size:370%;z-index:2;font-weight:bold;color:#0cf;border:6px dotted #f0c;">Panache</div>
+	
+		<div class="menubar" style="height:18=4%;position:relative;z-index:3">
 			
 		
 			<a href="#"><div class="logo"><img class="avatar" src="images/avatar.svg"></div></a>
@@ -181,20 +175,20 @@ margin-bottom:10px;
 </nav>
 			
 		</div>
-		<div id="side">
+		<div id="side" >
 			
-				<div id="sidebar_title" style="margin-top:0px;padding-top:0px;padding-bottom:30px;padding-left:30px; ">
+				<div id="sidebar_title" style="margin-top:0px;margin-left:20px;padding-top:0px;padding-bottom:30px;padding-left:30px;background:white; ">
 				<div class="accordion" id="accordionExample" >
-  <div class="card" style="color:#FF00CC;border:white;background:white; width:200px;padding:0px;margin-left:-35px;">
-    <div class="card-header" style="color:#FF00CC;border:white;background:white;" id="headingOne">
+  <div class="card" style="color:white;border:white;background:white; width:200px;padding:0px;margin-left:-35px;">
+    <div class="card-header" id="headingOne" style="background:white">
       <h5 class="mb-0">
-        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:200%; color:#FF00CC;border:white;background:white; margin-left:10px; margin-top:40px;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
+        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:190%; color:#ff00cc;border:white;background:white; margin-left:0px; margin-top:10px;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
          Categories
         </button>
       </h5>
     </div>
 
-    <div id="collapseOne" style="color:#FF00CC;border:white;background:white; " class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOne" style="color:black;border:white;background:white; " class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
         <ul style="border-bottom:black;background:white;font-family:Comic Sans Ms;font-size:110%;border:2px dottd pink;margin-top:-20px;">
 		<li style="color:#00ccff;">Customised Tees</li>
@@ -213,10 +207,10 @@ margin-bottom:10px;
 				
   
  <div class="accordion" id="accordionExample" >
-  <div class="card" style="color:#FF00CC;border:white;background:white; width:200px;padding:0px;margin-left:-35px;">
-    <div class="card-header" style="color:#FF00CC;border:white;background:white;" id="headingOne">
+  <div class="card" style="color:#FF00CC;border:white;background:white; width:200px;padding:0px;margin-left:-15px;">
+    <div class="card-header" style="color:#FF00CC;background:white;" id="headingOne">
      
-        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:200%; color:#FF00CC;border:white;background:white;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
+        <button style="font-family: 'Bangers', cursive;	font-weight:bold; font-size:160%; color:#FF00CC;border:white;background:white;" type="button" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
         Advanced Filters
         </button>
       
@@ -251,57 +245,113 @@ margin-bottom:10px;
 		
 			<div id="content_area">			
 			
-			<div id="shopping_cart"> 
+			<div id="shopping_cart" style="position:relative;z-index:3"> 
 					
-				
-					<div id="shopping_cart"> 
+			<span style="font-size:17px; padding-left:535px; line-height:40px; ">
+		
+			<?php
+			
+		
+			
+				if(isset($_POST['login']))
+				{				
+					$c_email = $_POST['email'];
+					$c_pass = $_POST['pass'];
 					
-			<?php	if(isset($_SESSION['customer_email']))
-					{
-						echo "<span style='font-size:17px; padding-left:735px; line-height:40px; '>Welcome: ".$_SESSION['customer_email']."</span>";
-							//<span style="font-size:17px; padding-left:535px; line-height:40px; ">
-						echo "<p style='left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items:   Total Price: </p>";
-							//<p style="left:420px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>				
-						echo "<a href='logout.php' style='color:white;font-size:120%;margin-left:530px;'>Logout</a>";
-							//<a href='login_form.php' style='color:white;font-size:120%;margin-left:90px;'>Login</a>
-						echo "<a href='all_products.php' style='color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";
+					$sel_c = "select * from customers where customer_pass='$c_pass' AND customer_email='$c_email'";
+					
+					$run_c = mysqli_query($con, $sel_c);
+					
+					$check_customer = mysqli_num_rows($run_c); 
+					
+					if($check_customer==0)
+					{					
+						echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
+						echo "<script>window.open('login_form.php','_self')</script>";
+						exit();
 					}
-					else
-					{
-						echo "<span style='font-size:17px; padding-left:835px; line-height:40px; '>Welcome Guest!</span>";
+					$ip = getIp(); 
 					
-						echo "<p style='left:620px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items:   Total Price: </p>";
+					$sel_cart = "select * from cart where ip_add='$ip'";
+					
+					$run_cart = mysqli_query($con, $sel_cart); 
+					
+					$check_cart = mysqli_num_rows($run_cart); 
+					
+					if($check_customer>0 AND $check_cart==0){
+					
+					$_SESSION['customer_email']=$c_email; 
+					
+					echo "<script>alert('You logged in successfully, Thanks!')</script>";
+					echo "<script>window.open('customer/my_account.php','_self')</script>";
+					
+					}
+					else {
+						
+					$_SESSION['customer_email']=$c_email; 
+					echo "<script>alert('You logged in successfully, Thanks!!')</script>";		
+
+					$total=total_items();
+					
+					$price=total_price();
+					
+					echo "<span style='font-size:18px;font-weight:bold;line-height:40px;margin-left:-200px;color:#ffd633;'>Welcome: ".$_SESSION['customer_email']."</span>";
+					
+					echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
 										
-						echo "<a href='login_form.php' style='color:white;font-size:120%;margin-left:570px;'>Login</a>";
+					echo "<a href='logout.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:530px;'>Logout</a>";
 					
-						echo "<a href='all_products.php' style='color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";
+					echo "<a href='all_products.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";					
+					//echo "<script>window.open('all_products.php','_self')</script>";										
 					}
-					?>
-				<!--	<span style="font-size:17px; padding-left:535px; line-height:40px; ">Welcome Guest!					
-					</span>
-					<p style="left:420px;position:absolute;top:114px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;">Shopping Cart-> Total Items:   Total Price: </p>
+				}
+				else if(isset($_SESSION['customer_email']))
+				{
+					$total=total_items();
+					
+					$price=total_price();
+					
+					echo "<span style='font-size:18px;font-weight:bold;line-height:40px;margin-left:-200px;color:#ffd633; '>Welcome: ".$_SESSION['customer_email']."</span>";
+					
+					echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
+										
+					echo "<a href='logout.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:530px;'>Logout</a>";
+					
+					echo "<a href='all_products.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";
+				}
+				else
+				{					
+					//echo "<script>alert('You logged out successfully, Thanks!!')</script>";	
+
+						$total=total_items();
+					
+					$price=total_price();
 					
 					
-					<a href='login_form.php' style='color:white;font-size:120%;margin-left:90px;'>Login</a>
+					echo "<span style='font-size:17px;color:#ffd633;font-weight:bold;line-height:40px;margin-left:-200px; '>Welcome Guest!</span>";
 					
-					<a href="all_products.php" style="color:#ffd633;left:1200px;top:114px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;">Go Back</a>
-				-->	
-			</div>
+					echo "<p style='left:640px;font-weight:bold;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
+										
+					echo "<a href='login_form.php' style='font-weight:bold;color:#ffd633;font-size:120%;margin-left:630px;'>Login</a>";
 					
-					
-			</div>
+					echo "<a href='all_products.php' style='color:#ffd633;font-weight:bold;left:1290px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";					
+				}
+				
+				?>				
+				</div>
+			
 			<?php getIp()?>
 			
 				<div id="products_box" >
 						<form action="" method="post" enctype="multipart/form-data">
 			
-				<table align="center" width="700" bgcolor="skyblue">
+				<table align="center" width="900" bgcolor="skyblue">
 					
-					<tr align="center">
+					<tr align="center" style="font-size:150%;font-weight:bold;color:#ff148f; padding:5px;">
 						<th>Remove</th>
 						<th>Product(S)</th>
 						<th>Quantity</th>
-						<th>Total Price</th>
+						<th>&nbsp &nbsp Total Price</th>
 					</tr>
 					
 		<?php 
@@ -309,8 +359,13 @@ margin-bottom:10px;
 		
 		global $con; 
 		
-		$ip = getIp(); 
+		$ip = getIp();
+		if (isset($_SESSION['customer_email'])) {
 		$c_mail = $_SESSION['customer_email'];
+		}
+		else
+			$c_mail = "guest@gmail.com";
+	
 		$sel_price = "select * from cart where ip_add='$ip' and customer_email='$c_mail'";
 		
 		$run_price = mysqli_query($con, $sel_price); 
@@ -341,8 +396,8 @@ margin-bottom:10px;
 					
 					<tr align="center">
 						<td style="margin-left:200px"><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></td>
-						<td><?php echo $product_title; ?><br>
-						<img src="admin_area/product_images/<?php echo $product_image;?>" width="160" height="260"/>
+						<td style="color:#0cf;font-size:120%;font-weight:bold;padding-top:25px;"><?php echo $product_title; ?><br>
+						<img src="admin_area/product_images/<?php echo $product_image;?>" width="160" height="290"/>
 						</td>
 						<td><input type="text" size="4" name="qty" value="1"/></td>
 						<?php 
@@ -363,24 +418,23 @@ margin-bottom:10px;
 						?>
 						
 						
-						<td><?php echo "$" . $single_price; ?></td>
+						<td style="color:#c600eb;font-size:120%;font-weight:bold;"><?php echo "$" . $single_price; ?></td>
 					</tr>
 					
 					
 				<?php } } ?>
 				
-				<tr>
-						<td colspan="4" align="right"><b>Sub Total:</b></td>
-						<td><?php echo "$" . $total;?></td>
+				<tr style="font-size:150%;font-weight:bold;color:#ff148f;">
+						<td colspan="4" align="right" ><b>Sub Total:</b></td>
+						<td style="color:#0cf"><?php echo "$" . $total;?></td>
 					</tr>
 					
-					<tr align="center">
-						<td colspan="2"><input type="submit" name="update_cart" value="Update Cart"/></td>
-						<td><input type="submit" name="continue" value="Continue Shopping" /></td>
-						
-					</tr><tr>
-					<td><button><a href="checkout.php" style="text-decoration:none; color:black;">Checkout</a></button></td></tr>
+				
 				</table> 
+			
+						<input type="submit" style="width:200px; margin-left:20px;background:#f0c;font-weight:bold; font-size:120%;border:5px solid #0cf;color:white;" name="update_cart" value="Update Cart"/>
+						<input type="submit" style="width:200px; margin-left:20px;background:#f0c;font-weight:bold; font-size:120%;border:5px solid #0cf;color:white;" name="continue" value="Continue Shopping" />
+						<a href="checkout.php" style="width:200px;background:#f0c;font-weight:bold;padding:5px;padding-left:22px;padding-right:22px;font-size:120%; margin-left:20px;text-decoration:none;border:5px solid #0cf;color:white">Checkout</a>
 			
 			</form>
 			
@@ -392,18 +446,23 @@ margin-bottom:10px;
 		
 		$ip = getIp();
 		
+		if(isset($_SESSION['customer_email']))
+		$c_email = $_SESSION['customer_email'];
+		else
+		$c_email = "guest@gmail.com";
+		
+			
 		if(isset($_POST['update_cart'])){
 		
 			foreach($_POST['remove'] as $remove_id){
 			
-			$delete_product = "delete from cart where p_id='$remove_id' AND ip_add='$ip'";
+			$delete_product = "delete from cart where p_id='$remove_id' AND ip_add='$ip' AND customer_email='$c_email'";
 			
 			$run_delete = mysqli_query($con, $delete_product); 
 			
 			if($run_delete){
 			
 			echo "<script>window.open('cart.php','_self')</script>";
-			
 			}
 			
 			}
@@ -411,13 +470,13 @@ margin-bottom:10px;
 		}
 		if(isset($_POST['continue'])){
 		
-		echo "<script>window.open('index.php','_self')</script>";
+		echo "<script>window.open('all_products.php','_self')</script>";
 		
 		}
 	
-	
-	echo @$up_cart = updatecart();
 	}
+	echo @$up_cart = updatecart();
+	
 	?>
 
 				</div>

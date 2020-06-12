@@ -55,7 +55,7 @@
 
 ?>
 <h2 align="center" style="padding:2px;">Pay now with Paypal:</h2>
-
+<a href="paypal_success.php" style="margin-left:30px;margin-top:200px;font-size:160%;">Click me</a>
 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" >
 
 <!-- Identify your business so that you can collect the payments. -->
