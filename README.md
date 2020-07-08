@@ -1,2 +1,3 @@
 # Panache
-## E-commerce website for interactive gift items
+## E-commerce website for providing customised gifting solutions
+
