@@ -139,18 +139,17 @@ margin-bottom:10px;
 			<a href="customer/my_account.php"><div class="logo"><img class="avatar" src="images/avatar.svg"></div></a>
 <nav class="primary-nav">
   <ul class="primary-navigation">
-    <li class="work-nav active"><a href="#">Home</a></li>
-    <li class="play-nav"><a href="#">Customise Form</a></li>		
-    <li class="about-nav"><a href="#">Customised Gift</a></li>
+    <li class="work-nav active"><a href="index.php">Home</a></li>
+    <li class="about-nav"><a href="category.php">Customised Gift</a></li>
    
-    <li class="shop-nav"><a href="#">Gift Items</a></li>
-	<li class="shop-nav"><a href="#">Login</a></li>
-	<li class="shop-nav"><a href="#">Register</a></li>
+        <li class="shop-nav"><a href="category.php">Gift Items</a></li>
+	<li class="shop-nav"><a href="login/login_test.php">Login</a></li>
+	<li class="shop-nav"><a href="register.php">Register</a></li>
 	<div id="form" style="height:40px;width:200px; float:left; margin-top:-55px;margin-left:10px">
   <form method="get" action ="results.php" enctype="multipart/form-data" >
 	<input type="text" style="height:35px; width:195px; font-size:70%;" name="user_query" placeholder="Search a product"/>
 	
-	<p style="position:absolute;"><input type="submit" style="height:35px; width:70px; font-size:80%; color:gray; float:left; margin-top:-35px;margin-left:195px;" name="search" value="Search" /></p>
+	<p style="position:absolute;"><input type="submit" style="height:35px; width:70px; font-size:80%; color:gray; float:left; margin-top:-35px;margin-left:165px;" name="search" value="Search" /></p>
 	</form>
   </div>
 	<li class="shop-nav"  style="margin-top:-10px"><div class="panache" style="color:#c600eb; padding-left:2px;margin-left:70px;">P</div><div class="panache" style="color:#25ff00; ">A</div><div class="panache" style="color:#ce1127;">N</div><div class="panache" style="color:#14dbff; ">A</div><div class="panache" style="color:#ff148f; ">C</div><div class="panache" style="color:#39ff14; ">H</div><div class="panache" style="color:#ff164d; ">E</div></li>
@@ -251,7 +250,7 @@ margin-bottom:10px;
 						if($check_customer==0)
 						{					
 							echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
-							echo "<script>window.open('login_form.php','_self')</script>";
+							echo "<script>window.open('login/login_test.php','_self')</script>";
 							exit();
 						}
 						$ip = getIp(); 
@@ -316,7 +315,7 @@ margin-bottom:10px;
 						
 						echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
 											
-						echo "<a href='login_form.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:570px;'>Login</a>";
+						echo "<a href='login/login_test.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:570px;'>Login</a>";
 						
 						echo "<a href='cart.php' style='color:#ffd633;font-weight:bold;left:1290px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
 					}

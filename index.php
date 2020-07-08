@@ -105,10 +105,10 @@ border-radius: 50%;
   <ul class="primary-navigation">
     <li class="work-nav active"><a href="all_products.php">Home</a></li>
     <li class="play-nav"><a href="all_products.php">About Us</a></li>
-    <li class="about-nav"><a href="home.html">Contact Us</a></li>
+    <li class="about-nav"><a href="index.php">Contact Us</a></li>
    
-    <li class="shop-nav"><a href="home.html">Gift Items</a></li>
-	<li class="shop-nav"><a href="login_form.php">Login</a></li>
+    <li class="shop-nav"><a href="category.php">Gift Items</a></li>
+	<li class="shop-nav"><a href="login/login_test.php">Login</a></li>
 	<li class="shop-nav"><a href="register.php">Register</a></li>
 	<div id="form" style="height:20px; width:200px; float:left; margin-top:-55px;margin-left:10px">
   <form method="get" action ="results.php" enctype="multipart/form-data" >
@@ -132,7 +132,7 @@ border-radius: 50%;
 <h1 class="title"> <div class="font1" style="top:250vh;">Panache</div>
 <div style="margin-top:25vh;margin-left:200px" class="font2">A One Stop Solution for Personalised Gifts...</div> </h1>
 <a href="https://www.futurefabric.co/about" class="more-link">Read more</a>
-<p class="work-description">Selected work</p>
+<p class="work-description">@Prerna</p>
 </header>
 <div id="projects" class="projects">
     

@@ -139,13 +139,13 @@ margin-bottom:10px;
 			<a href="#"><div class="logo"><img class="avatar" src="images/avatar.svg"></div></a>
 <nav class="primary-nav">
   <ul class="primary-navigation">
-    <li class="work-nav active"><a href="#">Home</a></li>
-    <li class="play-nav"><a href="#">About Us</a></li>
-    <li class="about-nav"><a href="#">Contact Us</a></li>
+    <li class="work-nav active"><a href="../all_products.php">Home</a></li>
+    <li class="play-nav"><a href="../index.php">About Us</a></li>
+    <li class="about-nav"><a href="../index.php">Contact Us</a></li>
    
-    <li class="shop-nav"><a href="#">Gift Items</a></li>
-	<li class="shop-nav"><a href="#">Login</a></li>
-	<li class="shop-nav"><a href="#">Register</a></li>
+    <li class="shop-nav"><a href="../category.php">Gift Items</a></li>
+	<li class="shop-nav"><a href="../login/login_test.php">Login</a></li>
+	<li class="shop-nav"><a href="../register.php">Register</a></li>
 	<div id="form" style="height:40px;width:200px; float:left; margin-top:-55px;margin-left:10px">
   <form method="get" action ="results.php" enctype="multipart/form-data" >
 	<input type="text" style="height:35px; width:195px; font-size:70%;" name="user_query" placeholder="Search a product"/>

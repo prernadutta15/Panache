@@ -138,11 +138,11 @@ session_start();
 			$message = "<html> 
 			<p>
 			
-			Hello dear <b style='color:blue;'>$c_name</b> you have ordered some products on our website onlinetuting.com, please find your order details, your order will be processed shortly. Thank you!</p>
+			Hello dear <b style='color:blue;'>$c_name</b> you have ordered some products on our website PANACHE, please find your order details, your order will be processed shortly. Thank you!</p>
 			
 				<table width='600' align='center' bgcolor='#FFCC99' border='2'>
 			
-					<tr align='center'><td colspan='6'><h2>Your Order Details from onlinetuting.com</h2></td></tr>
+					<tr align='center'><td colspan='6'><h2>Your Order Details from Panache!</h2></td></tr>
 					
 					<tr align='center'>
 						<th><b>S.N</b></th>
@@ -162,7 +162,7 @@ session_start();
 				
 				<h3>Please go to your account and see your order details!</h3>
 				
-				<h2> <a href='all_products.php'>Click here</a> to login to your account</h2>
+				<h2> <a href='customer/my_account.php'>Click here</a> to login to your account</h2>
 				
 				<h3> Thank you for your ordering with Panache!</h3>
 				

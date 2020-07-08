@@ -26,14 +26,14 @@ include("includes/db.php");
         <section class="signup" style="margin:-130px">
             <div class="container">
                 <div class="signup-content">	-->
-                    <div class="signup-form">	
-                        <h2 class="form-title" style="color:#990099;">Customize Your Gift</h2>
+                    <div class="signup-form" style="padding:10px;border: 6px dotted #ff80ff; width:400px;font-family: 'Bangers', cursive;	 font-size:120%; color:#ff00cc;" >	
+                        <h2 class="form-title" style="color:#990099;font-family: 'Bangers', cursive;	font-weight:bold;">Find Your Gift</h2>
                         <form method="POST" class="register-form" id="register-form" action="connect2.php" enctype="multipart/form-data">                            
 							
 						<tr>
 							<td align="right">Age Group :</td>							
 							<td>
-							<select name="age">
+							<select name="age" style="color:purple">
 								<option>Select a Age</option>
 								<option>0-5</option>
 								<option>6-12</option>
@@ -50,16 +50,21 @@ include("includes/db.php");
 						<tr>
 							<td align="right">Relationship :</td>
 							<td>
-							<select name="relationship">
+							<select name="relationship" style="color:purple">
 								<option>Select a Relationship</option>
 								<option>Mother</option>
 								<option>Father</option>
 								<option>Sister</option>
 								<option>Brother</option>
 								<option>Girlfriend</option>
+								<option>Boss</option>
+								<option>Son</option>
+								<option>Daughter</option>
 								<option>Boyfriend</option>
 								<option>Couples</option>
-								<option>General</option>								
+								<option>Husband</option>
+								<option>Wife</option>
+								<option>Other</option>								
 							</select>
 							
 							</td>
@@ -67,12 +72,27 @@ include("includes/db.php");
 						
 						<tr>
 							<td align="right">Budget :</td>
-							<td><input type="number" name="budget" required/></td>
+							<td><input type="number" name="budget" /></td>
 						</tr>
 							<br>
 						
-                            <div class="form-group form-button">
-                                <input type="submit" name="filterCat" id="signup"  style="color:#909;background:#ff80ff; " class="form-submit" value="Register"/>
+                            <div class="form-group form-button" style="margin-top:30px">
+                                <input type="submit" name="filterCat" id="signup"  style="color:purple;background:#ff80ff; border:3px dotted purple; " class="form-submit" value="SEARCH FOR ME!"/>
+                            </div>
+                        </form>
+                    </div>
+					
+					
+					
+					  <div class="signup-form" style="position:absolute;padding:10px;top:170px;left:700px;border: 6px dotted #ff80ff; width:400px;font-family: 'Bangers', cursive;	 font-size:120%; color:#ff00cc;" >	
+                        <h2 class="form-title" style="padding-bottom:25px;color:#990099;font-family: 'Bangers', cursive;	font-weight:bold;">Our Popular Categories</h2>
+								<h2 class="form-title" style="padding-bottom:10px;color:#0cf;font-family:Comic Sans Ms;font-size:110%;font-weight:bold;">Mobile Covers</h2>
+								<h2 class="form-title" style="padding-bottom:10px;color:#c6f;font-family:Comic Sans Ms;font-size:110%;font-weight:bold;">Funky Shirts</h2>
+								<h2 class="form-title" style="padding-bottom:10px;color:#0cf;font-family:Comic Sans Ms;font-size:110%;font-weight:bold;">Bags</h2>
+								<h2 class="form-title" style="padding-bottom:10px;color:#c6f;font-family:Comic Sans Ms;font-size:110%;font-weight:bold;">Dresses</h2>
+								<h2 class="form-title" style="padding-bottom:10px;color:#0cf;font-family:Comic Sans Ms;font-size:110%;font-weight:bold;">Show Pieces</h2>
+                            <div class="form-group form-button" style="margin-top:30px">
+                                <input type="submit" name="filterCat" id="signup"  style="color:purple;background:#ff80ff; border:3px dotted purple; " class="form-submit" value="Search!"/>
                             </div>
                         </form>
                     </div>

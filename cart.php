@@ -156,12 +156,12 @@ margin-bottom:10px;
 <nav class="primary-nav">
   <ul class="primary-navigation">
     <li class="work-nav active"><a href="all_products.php">Home</a></li>
-    <li class="play-nav"><a href="#">About Us</a></li>
-    <li class="about-nav"><a href="#">Contact Us</a></li>
+    <li class="play-nav"><a href="index.php">About Us</a></li>
+    <li class="about-nav"><a href="index.php">Contact Us</a></li>
    
-    <li class="shop-nav"><a href="#">Gift Items</a></li>
-	<li class="shop-nav"><a href="customer_login.php">Login</a></li>
-	<li class="shop-nav"><a href="#">Register</a></li>
+    <li class="shop-nav"><a href="category.php">Gift Items</a></li>
+	<li class="shop-nav"><a href="login/login_test.php">Login</a></li>
+	<li class="shop-nav"><a href="register.php">Register</a></li>
 	<div id="form" style="height:40px;width:200px; float:left; margin-top:-55px;margin-left:10px">
   <form method="get" action ="results.php" enctype="multipart/form-data" >
 	<input type="text" style="height:35px; width:195px; font-size:70%;" name="user_query" placeholder="Search a product"/>
@@ -267,7 +267,7 @@ margin-bottom:10px;
 					if($check_customer==0)
 					{					
 						echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
-						echo "<script>window.open('login_form.php','_self')</script>";
+						echo "<script>window.open('login/login_test.php','_self')</script>";
 						exit();
 					}
 					$ip = getIp(); 
@@ -332,7 +332,7 @@ margin-bottom:10px;
 					
 					echo "<p style='left:640px;font-weight:bold;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
 										
-					echo "<a href='login_form.php' style='font-weight:bold;color:#ffd633;font-size:120%;margin-left:630px;'>Login</a>";
+					echo "<a href='login/login_test.php' style='font-weight:bold;color:#ffd633;font-size:120%;margin-left:630px;'>Login</a>";
 					
 					echo "<a href='all_products.php' style='color:#ffd633;font-weight:bold;left:1290px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go Back</a>";					
 				}

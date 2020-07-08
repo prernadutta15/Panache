@@ -100,7 +100,7 @@ background:white;
 }
 
 #side{
-	width:18%;
+	width:20%;
 	position: fixed;
 	margin-top:52px;
 	border:6px dotted #0cf;
@@ -131,7 +131,7 @@ margin-bottom:10px;
 	<!--Main Container starts here-->
 	<div class="main_wrapper">
 	
-		<div style="position:fixed;top:35px;left:1px;font-size:370%;z-index:2;font-weight:bold;color:#0cf;border:6px dotted #f0c;">Panache</div>
+		<div style="position:fixed;top:35px;left:1px;font-size:370%;z-index:2;font-weight:bold;color:#0cf;border:6px dotted #f0c;padding-left:12px;padding-right:12px">Panache</div>
 	
 		<div class="menubar" style="height:18=4%;position:relative;z-index:3">
 			
@@ -139,13 +139,13 @@ margin-bottom:10px;
 			<a href="customer/my_account.php"><div class="logo"><img class="avatar" src="images/avatar.svg"></div></a>
 <nav class="primary-nav">
   <ul class="primary-navigation">
-    <li class="work-nav active"><a href="#">Home</a></li>
-    <li class="play-nav"><a href="#">About Us</a></li>
-    <li class="about-nav"><a href="#">Contact Us</a></li>
+    <li class="work-nav active"><a href="index.php">Home</a></li>
+    <li class="play-nav"><a href="index.php">About Us</a></li>
+    <li class="about-nav"><a href="index.php">Contact Us</a></li>
    
-    <li class="shop-nav"><a href="#">Gift Items</a></li>
-	<li class="shop-nav"><a href="#">Login</a></li>
-	<li class="shop-nav"><a href="#">Register</a></li>
+    <li class="shop-nav"><a href="category.php">Gift Items</a></li>
+	<li class="shop-nav"><a href="login/login_test.php">Login</a></li>
+	<li class="shop-nav"><a href="register.php">Register</a></li>
 	<div id="form" style="height:40px;width:200px; float:left; margin-top:-55px;margin-left:10px">
   <form method="get" action ="results.php" enctype="multipart/form-data" >
 	<input type="text" style="height:35px; width:195px; font-size:70%;" name="user_query" placeholder="Search a product"/>
@@ -176,7 +176,7 @@ margin-bottom:10px;
 
     <div id="collapseOne" style="color:black;border:white;background:white; " class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <ul style="border-bottom:black;background:white;font-family:Comic Sans Ms;font-size:110%;border:2px dottd pink;margin-top:-20px;">
+        <ul style="border-bottom:black;background:white;font-family:Comic Sans Ms;font-size:110%;border:2px dottd blue;margin-top:-20px;">
 		<li style="color:#00ccff;">Customised Tees</li>
 		<li style="color:#cc66ff;">Mobile Covers</li>
 		<li style="color:#00ccff;">Pillows</li>
@@ -253,7 +253,7 @@ margin-bottom:10px;
 					if($check_customer==0)
 					{					
 						echo "<script>alert('Password or email is incorrect, plz try again!')</script>";
-						echo "<script>window.open('login_form.php','_self')</script>";
+						echo "<script>window.open('login/login_test.php','_self')</script>";
 						exit();
 					}
 					$ip = getIp(); 
@@ -287,7 +287,7 @@ margin-bottom:10px;
 										
 					echo "<a href='logout.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:530px;'>Logout</a>";
 					
-					echo "<a href='cart.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
+					echo "<a href='cart.php' style='color:#ffd633;left:1260px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
 					//echo "<script>window.open('all_products.php','_self')</script>";										
 					}
 				}
@@ -303,7 +303,7 @@ margin-bottom:10px;
 										
 					echo "<a href='logout.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:530px;'>Logout</a>";
 					
-					echo "<a href='cart.php' style='color:#ffd633;left:1290px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";
+					echo "<a href='cart.php' style='color:#ffd633;left:1260px;font-weight:bold;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";
 				}
 				else
 				{					
@@ -318,9 +318,9 @@ margin-bottom:10px;
 					
 					echo "<p style='left:640px;position:absolute;top:3px;color:white;float:right;line-height:40px;font-size:100%;font-weight:bold;'>Shopping Cart-> Total Items: $total  Total Price: $price</p>";
 										
-					echo "<a href='login_form.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:570px;'>Login</a>";
+					echo "<a href='login/login_test.php' style='color:#ffd633;font-weight:bold;font-size:120%;margin-left:570px;'>Login</a>";
 					
-					echo "<a href='cart.php' style='color:#ffd633;font-weight:bold;left:1290px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
+					echo "<a href='cart.php' style='color:#ffd633;font-weight:bold;left:1260px;top:2px;position:absolute;float:right;line-height:40px;font-size:100%;padding-right:29px;'>Go To Cart</a>";					
 				}
 				
 				?>				
